@@ -306,11 +306,7 @@ JOIN Game_Category GC ON G.appID = GC.appID
 JOIN Category C ON GC.category_id = C.category_id
 WHERE G.appID = 10;
 
-SELECT DISTINCT G.name, D.developer_name, G.support_email
-FROM Games G
-JOIN Game_Developer GD ON G.appID = GD.appID
-JOIN Developer D ON GD.developer_id = D.developer_id
-WHERE G.required_age >= 17;
+SELECT G.name,D.developer_name,G.support_email FROM Games G JOIN Game_Developer GD ON G.appID = GD.appID JOIN Developer D ON GD.developer_id = D.developer_id WHERE G.required_age >= 17 GROUP BY G.name,D.developer_name,G.support_email;
 
 SELECT G.name, (G.positive + G.negative) * G.average_playtime_forever AS engagement_score
 FROM Games G
