@@ -273,7 +273,7 @@ SELECT required_age, COUNT(*) AS game_count FROM Games GROUP BY required_age;
 
 SELECT estimated_owners, AVG(peak_ccu) AS avg_ccu FROM Games GROUP BY estimated_owners;
 
-SELECT required_age, COUNT() AS game_count FROM Games GROUP BY required_age HAVING COUNT() > 5;
+SELECT required_age, COUNT(*) AS game_count FROM Games GROUP BY required_age HAVING COUNT(*) > 5;
 
 SELECT estimated_owners, SUM(positive) AS total_pos FROM Games GROUP BY estimated_owners HAVING SUM(positive) > 50000;
 
